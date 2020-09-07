@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ThinkPadScrollHelper
 {
@@ -12,6 +13,8 @@ namespace ThinkPadScrollHelper
 
     public static void Init()
     {
+      AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
+
       // マウスプロパティを開く
       string mousePropertyPath = Environment.ExpandEnvironmentVariables(@"%windir%\system32\control.exe");
       Process mousePropertyProcess = Process.Start(mousePropertyPath, "mouse");
@@ -19,7 +22,7 @@ namespace ThinkPadScrollHelper
 
       try
       {
-        Thread.Sleep(500);
+        Task.Delay(500).Wait();
       }
       catch
       {
@@ -40,7 +43,7 @@ namespace ThinkPadScrollHelper
       Win32Api.PostMessage(hwndTab, Win32Api.TCM_SETCURFOCUS, new IntPtr(tabCount - 1), IntPtr.Zero);
       try
       {
-        Thread.Sleep(500);
+        Task.Delay(500).Wait();
       }
       catch
       {
@@ -57,6 +60,15 @@ namespace ThinkPadScrollHelper
       _hwndApplyButton = Util.FindChildWindowByCaption(_hwndPropertyDialog, "&Apply");
       if (_hwndApplyButton == IntPtr.Zero) throw new Exception("Mouse Properties ApplyButton not found");
       Console.WriteLine("hwndApplyButton = " + _hwndApplyButton);
+    }
+
+    private static void CurrentDomain_ProcessExit(object sender, EventArgs e)
+    {
+      try
+      {
+        Util.CloseWindow(_hwndPropertyDialog);
+      }
+      catch { }
     }
 
     public static void RestartIfClosed()

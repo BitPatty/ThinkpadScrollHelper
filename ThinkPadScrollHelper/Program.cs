@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ThinkPadScrollHelper
@@ -29,7 +30,12 @@ namespace ThinkPadScrollHelper
 
     public static void HideWindow(IntPtr hwnd)
     {
-      Win32Api.ShowWindow(hwnd, 6);
+      Win32Api.ShowWindow(hwnd, 0);
+    }
+
+    public static void CloseWindow(IntPtr hwnd)
+    {
+      Win32Api.CloseWindow(hwnd);
     }
 
     public static IntPtr FindChildWindowByClassName(IntPtr hwnd, string className)
@@ -133,7 +139,9 @@ namespace ThinkPadScrollHelper
     {
       try
       {
-        MainLogic();
+        Task trayTask = Task.Run(SysTrayIcon.Init);
+        Task mainTask = Task.Run(MainLogic);
+        Task.WaitAny(trayTask, mainTask);
       }
       catch (Exception ex)
       {
