@@ -36,6 +36,8 @@ namespace ThinkPadScrollHelper
 
     [DllImport("user32.dll")] public static extern bool EnableWindow(IntPtr hWnd, bool bEnable);
 
+    [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
     public const uint BM_SETCHECK = 0x00f1;
     public const uint BM_CLICK = 0x00F5;
     public const uint BM_GETCHECK = 0x00F0;

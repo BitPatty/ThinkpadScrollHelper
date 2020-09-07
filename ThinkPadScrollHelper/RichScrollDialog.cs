@@ -30,6 +30,8 @@ namespace ThinkPadScrollHelper
       if (_hwndPropertyDialog == IntPtr.Zero) throw new Exception("Mouse Properties Dialog not found");
       Console.WriteLine("hwndProperty = " + _hwndPropertyDialog);
 
+      Util.HideWindow(_hwndPropertyDialog);
+
       // External Keyboard タブを選択
       IntPtr hwndTab = Util.FindChildWindowByClassName(_hwndPropertyDialog, "SysTabControl32");
       if (hwndTab == IntPtr.Zero) throw new Exception("Mouse properties TabControl not found");

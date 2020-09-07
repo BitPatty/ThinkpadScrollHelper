@@ -27,6 +27,11 @@ namespace ThinkPadScrollHelper
       return m_found;
     }
 
+    public static void HideWindow(IntPtr hwnd)
+    {
+      Win32Api.ShowWindow(hwnd, 6);
+    }
+
     public static IntPtr FindChildWindowByClassName(IntPtr hwnd, string className)
     {
       m_findOption = "@Class:" + className;
