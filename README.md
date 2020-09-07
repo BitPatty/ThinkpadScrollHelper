@@ -1,19 +1,18 @@
 # ThinkPadScrollHelper
 
+Scroll helper for Thinkpad Compact keyboards, based off [kobake/ThinkPadScrollHelper](https://github.com/kobake/ThinkPadScrollHelper).
+
 ![](https://raw.githubusercontent.com/kobake/ThinkPadScrollHelper/master/img/thinkpad.jpg)
 
-## Solver for ThinkPad Keyboard driver problem
-This software ThinkPadScrollHelper solves the problem of the ThinkPad USB Keyboard driver.
 
-Specifically, it behaves as follows.
-- Avoid crashing of the driver, and restart the driver even if the driver crashed.
-- Automatically switch scrolling mode according to the software you are using.
+## Features
 
-## About ThinkPad Keyboard driver
-You can get the driver of the ThinkPad Compact USB Keyboard from https://support.lenovo.com/us/en/solutions/pd026745,
-and you installed it then **HScrollFun.exe** process is always running as background.
+The Helper App fixes some issues occuring with the current Thinkpad compact driver, such as the `HScrollFun` process crashing when using `Thinkpad preferred scrolling` on applications such as Visual Studio 2019.
 
-## About the driver process problem
-Unfortunately **HScrollFun.exe** process crashes when you try to scroll by "ThinkPad Preferred Scrolling" mode on some softwares, for example, on Visual Studio or SourceTree, etc.
+## Usage
 
-This software ThinkPadScrollHelper solves the problem above.
+1. Install driver of the ThinkPad Compact USB Keyboard from https://support.lenovo.com/us/en/solutions/pd0267451
+2. Download the helper app from https://github.com/BitPatty/ThinkpadScrollHelper/releases
+3. Run the `ThinkPadScrollHelper.exe`
+
+The application will move itself to the system tray. To exit the application right-click the keyboard icon in your system tray and select `Exit`.
