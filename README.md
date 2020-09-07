@@ -11,7 +11,7 @@ The Helper App fixes some issues occuring with the current Thinkpad compact driv
 
 ## Usage
 
-1. Install driver of the ThinkPad Compact USB Keyboard from https://support.lenovo.com/us/en/solutions/pd026503
+1. Install driver of the ThinkPad Compact USB Keyboard from https://support.lenovo.com/us/en/solutions/pd026745
 2. Download the helper app from https://github.com/BitPatty/ThinkpadScrollHelper/releases
 3. Run the `ThinkPadScrollHelper.exe`
 
