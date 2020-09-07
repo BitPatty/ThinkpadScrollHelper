@@ -34,15 +34,8 @@ namespace ThinkPadScrollHelper
         Visible = true,
       };
 
-      _notifyIcon.Click += _notifyIcon_Click;
-
       _notifyIcon.Visible = true;
       Application.Run();
-    }
-
-    private static void _notifyIcon_Click(object sender, EventArgs e)
-    {
-      Console.WriteLine("Hi");
     }
 
     private static void _menuItem_Click(object sender, EventArgs e)

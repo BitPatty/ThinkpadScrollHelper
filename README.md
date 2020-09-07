@@ -1,4 +1,4 @@
-# ThinkPadScrollHelper
+# ThinkPad Scroll Helper
 
 Scroll helper for Thinkpad Compact keyboards, based off [kobake/ThinkPadScrollHelper](https://github.com/kobake/ThinkPadScrollHelper).
 
